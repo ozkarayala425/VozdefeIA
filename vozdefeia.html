@@ -1,1 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VozdefeIA</title>
+</head>
+<body style="font-family: Arial; text-align:center; background:#0b1a33; color:white;">
 
+  <h1>🤖 VozdefeIA</h1>
+  <p>Tu app está funcionando</p>
+
+  <input id="msg" placeholder="Escribe..." />
+  <button onclick="enviar()">Enviar</button>
+
+  <div id="chat"></div>
+
+  <script>
+    function enviar() {
+      const msg = document.getElementById("msg").value;
+      document.getElementById("chat").innerHTML += "<p>" + msg + "</p>";
+    }
+  </script>
+
+</body>
+</html>
