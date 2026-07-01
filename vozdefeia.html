@@ -119,3 +119,22 @@ function hablar(texto) {
 <button onclick="responderIA()">Enviar</button>
 
 <p id="respuesta"></p>
+<script>
+function generarRespuesta(texto) {
+  texto = texto.toLowerCase();
+
+  if (texto.includes("fe")) {
+    return "La fe es la certeza de lo que se espera, la convicción de lo que no se ve. Hebreos 11:1.";
+  }
+
+  if (texto.includes("amor")) {
+    return "El amor de Dios es eterno y perfecto. 1 Corintios 13 nos enseña cómo amar.";
+  }
+
+  if (texto.includes("oración")) {
+    return "La oración es el puente entre tu corazón y Dios. Ora sin cesar.";
+  }
+
+  return "Dios te escucha. Sigue buscando en su palabra y Él te guiará.";
+}
+</script>
