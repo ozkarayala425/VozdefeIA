@@ -138,3 +138,20 @@ function generarRespuesta(texto) {
   return "Dios te escucha. Sigue buscando en su palabra y Él te guiará.";
 }
 </script>
+<script>
+function hablar(texto) {
+  const synth = window.speechSynthesis;
+
+  const utterance = new SpeechSynthesisUtterance(texto);
+  utterance.lang = "es-ES";
+  utterance.rate = 1;
+  utterance.pitch = 1;
+  utterance.volume = 1;
+
+  const voces = synth.getVoices();
+  const voz = voces.find(v => v.lang.includes("es"));
+  if (voz) utterance.voice = voz;
+
+  synth.speak(utterance);
+}
+</script>
