@@ -72,7 +72,10 @@ function hablar(texto) {
   // 🔊 Seleccionar voz en español si existe
   const voices = synth.getVoices();
   const vozEspañola = voices.find(v => v.lang.includes("es"));
-
+<input id="mensaje" placeholder="Escribe algo..." />
+<button onclick="hablar(document.getElementById('mensaje').value)">
+  🔊 Hablar
+</button>
   if (vozEspañola) {
     utterance.voice = vozEspañola;
   }
