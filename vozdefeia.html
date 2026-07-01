@@ -5,7 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>VozdefeIA</title>
 </head>
-<body style="font-family: Arial; text-align:center; background:#0b1a33; color:white;">
+<script>
+function startVoice() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    alert("Tu navegador no soporta micrófono");
+    return;
+  }
+
+  const recognition = new SpeechRecognition();
+  recognition.lang = "es-ES";
+  recognition.continuous = false;
+  recognition.interimResults = false;
+
+  recognition.start();
+
+  recognition.onresult = function(event) {
+    const text = event.results[0][0].transcript;
+    document.getElementById("texto").innerText = "🗣️ " + text;
+  };
+
+  recognition.onerror = function(event) {
+    console.log("Error:", event.error);
+  };
+}
+</script>
+  <body style="font-family: Arial; text-align:center; background:#0b1a33; color:white;">
 
   <h1>🤖 VozdefeIA</h1>
   <p>Tu app está funcionando</p>
