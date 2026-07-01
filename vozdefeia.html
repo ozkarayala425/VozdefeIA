@@ -155,3 +155,14 @@ function hablar(texto) {
   synth.speak(utterance);
 }
 </script>
+<script>
+function responderIA() {
+  const input = document.getElementById("entrada").value;
+  const respuesta = generarRespuesta(input);
+
+  document.getElementById("respuesta").innerText = respuesta;
+
+  // 🔊 habla automáticamente
+  hablar(respuesta);
+}
+</script>
