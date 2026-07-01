@@ -52,6 +52,63 @@ function startVoice() {
       document.getElementById("chat").innerHTML += "<p>" + msg + "</p>";
     }
   </script>
+<script>
+function hablar(texto) {
+  const synth = window.speechSynthesis;
 
+  if (!synth) {
+    alert("Tu navegador no soporta voz");
+    return;
+  }
+
+  const utterance = new SpeechSynthesisUtterance(texto);
+
+  // 🎚️ Configuración de voz
+  utterance.lang = "es-ES";   // Español
+  utterance.rate = 1;         // Velocidad
+  utterance.pitch = 1;        // Tono
+  utterance.volume = 1;       // Volumen
+
+  // 🔊 Seleccionar voz en español si existe
+  const voices = synth.getVoices();
+  const vozEspañola = voices.find(v => v.lang.includes("es"));
+
+  if (vozEspañola) {
+    utterance.voice = vozEspañola;
+  }
+
+  synth.speak(utterance);
+}<script>
+function hablar(texto) {
+  const synth = window.speechSynthesis;
+
+  if (!synth) {
+    alert("Tu navegador no soporta voz");
+    return;
+  }
+
+  const utterance = new SpeechSynthesisUtterance(texto);
+
+  // 🎚️ Configuración de voz
+  utterance.lang = "es-ES";   // Español
+  utterance.rate = 1;         // Velocidad
+  utterance.pitch = 1;        // Tono
+  utterance.volume = 1;       // Volumen
+
+  // 🔊 Seleccionar voz en español si existe
+  const voices = synth.getVoices();
+  const vozEspañola = voices.find(v => v.lang.includes("es"));
+
+  if (vozEspañola) {
+    utterance.voice = vozEspañola;
+  }
+
+  synth.speak(utterance);
+}
+</script>
+</script>
 </body>
 </html>
+<button onclick="hablar('La paz de Cristo esté contigo')" style="font-size:18px; padding:10px;">
+  🔊 Reproducir voz
+</button>
